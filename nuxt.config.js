@@ -16,6 +16,21 @@ export default {
           "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'",
       },
     ],
+    script: [
+      {
+        src: 'https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js',
+        integrity:
+          'sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA',
+        crossorigin: 'anonymous',
+        defer: true,
+      },
+      {
+        src:
+          'https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.4/workbox/workbox-sw.js',
+        crossorigin: 'anonymous',
+        defer: true,
+      },
+    ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   ssr: false,
