@@ -12,8 +12,7 @@ export default {
       {
         hid: 'Content-Security-Policy',
         name: 'Content-Security-Policy',
-        content:
-          "script-src * data: https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval';",
+        content: "script-src 'self' http://xxxx 'unsafe-inline' 'unsafe-eval';",
       },
     ],
     script: [
