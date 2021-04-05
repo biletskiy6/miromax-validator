@@ -12,7 +12,7 @@ export default {
       {
         hid: 'Content-Security-Policy',
         name: 'Content-Security-Policy',
-        content: "script-src 'self' http://xxxx 'unsafe-inline' 'unsafe-eval';",
+        content: "script-src 'self' https://xxxx 'unsafe-inline' 'unsafe-eval';",
       },
     ],
     script: [
