@@ -18,15 +18,7 @@ export default {
     ],
     script: [
       {
-        src: 'https://cdn.jsdelivr.net/npm/pwacompat@2.0.6/pwacompat.min.js',
-        integrity:
-          'sha384-GOaSLecPIMCJksN83HLuYf9FToOiQ2Df0+0ntv7ey8zjUHESXhthwvq9hXAZTifA',
-        crossorigin: 'anonymous',
-        defer: true,
-      },
-      {
-        src:
-          'https://cdn.jsdelivr.net/npm/workbox-cdn@5.1.4/workbox/workbox-sw.js',
+        src: '/workbox-sw.js',
         crossorigin: 'anonymous',
         defer: true,
       },
@@ -39,7 +31,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '@/plugins/qrcode-reader', ssr: false }],
+  plugins: [
+    { src: '@/plugins/qrcode-reader', ssr: false },
+    { src: '@/plugins/workbox-sw.js', ssr: false },
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
