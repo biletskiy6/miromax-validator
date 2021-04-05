@@ -12,6 +12,7 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
+  ssr: false,
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
@@ -27,16 +28,10 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/ngrok',
+    '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
-  ngrok: {
-    // module options
-    authtoken: '1qTBnVVtoDFU4FeinK7Y5VVB4w1_6otadexB7xBGMfhsBH8z4',
-    auth: 'biletskiy6:conax4160CL',
-    region: 'us',
-    addr: 8080,
-  },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
