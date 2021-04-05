@@ -13,7 +13,7 @@ export default {
         hid: 'Content-Security-Policy',
         name: 'Content-Security-Policy',
         content:
-          "default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval'",
+          "script-src * data: https://cdn.jsdelivr.net 'unsafe-inline' 'unsafe-eval';",
       },
     ],
     script: [
