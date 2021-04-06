@@ -16,13 +16,6 @@ export default {
           "script-src 'self' https://xxxx 'unsafe-inline' 'unsafe-eval';",
       },
     ],
-    script: [
-      {
-        src: '/workbox-sw.js',
-        crossorigin: 'anonymous',
-        defer: true,
-      },
-    ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   ssr: false,

@@ -1,13 +1,19 @@
 <template>
   <v-row justify="center" align="center">
-    <div>
-      <p class="error">{{ error }}</p>
-
-      <p class="decode-result">
-        Last result1: <b>{{ result }}</b>
+    <div class="pt-10">
+      <v-alert v-if="error" class="mt-2" type="error">
+        {{ error }}
+      </v-alert>
+      <p v-if="false" class="decode-result">
+        Останній результат: <b>{{ result }}</b>
       </p>
-
-      <qrcode-stream :camera="camera" @decode="onDecode" @init="onInit">
+      <div v-show="loading">Завантаження...</div>
+      <qrcode-stream
+        v-show="!loading"
+        :camera="camera"
+        @decode="onDecode"
+        @init="onInit"
+      >
         <div v-if="validationSuccess" class="validation-success">
           This is a URL
         </div>
@@ -17,7 +23,7 @@
         </div>
 
         <div v-if="validationPending" class="validation-pending">
-          Long validation in progress...
+          Валідація...
         </div>
       </qrcode-stream>
     </div>
@@ -33,12 +39,14 @@ export default {
       camera: 'auto',
       result: null,
       error: '',
+      loading: false,
     }
   },
 
   computed: {
     validationPending() {
       return this.isValid === undefined && this.camera === 'off'
+      // return true
     },
 
     validationSuccess() {
@@ -67,7 +75,8 @@ export default {
 
     async onInit(promise) {
       try {
-        await promise.catch(console.error).then(this.resetValidationState)
+        this.loading = true
+        await promise.then(this.resetValidationState)
       } catch (error) {
         if (error.name === 'NotAllowedError') {
           this.error = 'ERROR: you need to grant camera access permisson'
@@ -82,6 +91,8 @@ export default {
         } else if (error.name === 'StreamApiNotSupportedError') {
           this.error = 'ERROR: Stream API is not supported in this browser'
         }
+      } finally {
+        this.loading = false
       }
     },
     resetValidationState() {
@@ -114,13 +125,11 @@ export default {
   position: absolute;
   width: 100%;
   height: 100%;
-
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   text-align: center;
   font-weight: bold;
   font-size: 1.4rem;
   padding: 10px;
-
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
