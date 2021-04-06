@@ -36,7 +36,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/ngrok',
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',

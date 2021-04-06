@@ -59,7 +59,7 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Сканер',
+          title: 'Валідатор квитків',
           to: '/',
         },
         {
