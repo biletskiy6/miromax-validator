@@ -72,7 +72,7 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'Сканер',
           to: '/',
         },
         {
@@ -84,7 +84,7 @@ export default {
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js',
+      title: '',
     }
   },
 }
